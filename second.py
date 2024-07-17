@@ -23,15 +23,15 @@ class Student:
         return total_score / len(self.units)
     
     def find_grade(self, average_score):
-        if 90 <= average_score <= 100:
+        if 90 <= average_score <= 100: #score 90 -> 100
             return 'A'
-        elif 80 <= average_score <= 89:
+        elif 80 <= average_score < 89: #score 80 -> 89
             return 'B'
-        elif 70 <= average_score <= 79:
+        elif 70 <= average_score < 79: #score 70 -> 79
             return 'C'
-        elif 60 <= average_score <= 69:
+        elif 60 <= average_score < 69: #score 60 -> 69
             return 'D'
-        else:
+        else: #score 59 and below
             return 'FAIL'
         
     def display_details(self):
@@ -46,8 +46,17 @@ class Student:
         print(f"Your average score is: {average_score:.2F}")
         print(f"Grade: {self.determine_grade(average_score)}")
 
+    def add_students(students):
+        name = input("Enter your name: ")
+        reg_no = input("Enter registration number: ")
+        department = input("Enter your department: ")
+        course = input("Enter the course: ")
 
-student = Student("Henry Arnold", "Information Technology", "Data Structures")
-student.add_unit("Arrays", 80)
-
-student.display_details()
+        student = Student(name, reg_no, department, course)
+        while True:
+            unit_name = input("Enter your unit name: ")
+            if unit_name.lower() == 'lower':
+                break
+            score = float(input("Enter score for {unit_name}: "))
+            student.add_unit(unit_name, score)
+        students.append(student)
