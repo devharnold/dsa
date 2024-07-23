@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Program that stores and manages details about a student:
     Department, Course, Number of units done, score for each unit, average score
@@ -46,7 +48,6 @@ def add_student():
         'average_score': average,
         'grade': grade
     }
-
     print(f"Student records added successfully!")
 
 def display_student_record(reg_no):
@@ -84,6 +85,8 @@ def delete_student(reg_no):
 
 #search a student by name
 def search_student(name):
+    found = False
+
     for reg_no, record in student_records.items():
         if record['name'].lower() == name.lower():
             display_student_record(reg_no)
@@ -98,7 +101,7 @@ def menu():
         print("2. Display student ")
         print("3. Update student record")
         print("4. Delete a student ")
-        print("5. Search for Student ")
+        print("5. Search Student ")
         print("6. Exit system")
 
         choice = input("Enter your preferred choice: ")
